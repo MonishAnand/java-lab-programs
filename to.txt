@@ -1,0 +1,167 @@
+Microsoft Windows [Version 10.0.22621.819]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Monish>cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql.exe-u root
+'mysql.exe-u' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\xampp\mysql\bin>mysql.exe -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.033 sec)
+
+MariaDB [(none)]> use mysql;
+Database changed
+MariaDB [mysql]> create table Emp_Details (Empno int(2) , Empname varchar(30), DOB date, Address varchar(15), DOJ date , Mobile Int(10),Deptno int(10), Salary int(20));
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [mysql]> desc Emp_Details;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Empno   | int(2)      | YES  |     | NULL    |       |
+| Empname | varchar(30) | YES  |     | NULL    |       |
+| DOB     | date        | YES  |     | NULL    |       |
+| Address | varchar(15) | YES  |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
+| Mobile  | int(10)     | YES  |     | NULL    |       |
+| Deptno  | int(10)     | YES  |     | NULL    |       |
+| Salary  | int(20)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+8 rows in set (0.020 sec)
+
+MariaDB [mysql]> truncate Emp_Details;
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [mysql]> desc Emp_Details;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Empno   | int(2)      | YES  |     | NULL    |       |
+| Empname | varchar(30) | YES  |     | NULL    |       |
+| DOB     | date        | YES  |     | NULL    |       |
+| Address | varchar(15) | YES  |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
+| Mobile  | int(10)     | YES  |     | NULL    |       |
+| Deptno  | int(10)     | YES  |     | NULL    |       |
+| Salary  | int(20)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+8 rows in set (0.017 sec)
+
+MariaDB [mysql]> select * from Emp_Details;
+Empty set (0.060 sec)
+
+MariaDB [mysql]> alter table Emp_Details add (dos date);
+Query OK, 0 rows affected (0.065 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> desc Emp_Details;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Empno   | int(2)      | YES  |     | NULL    |       |
+| Empname | varchar(30) | YES  |     | NULL    |       |
+| DOB     | date        | YES  |     | NULL    |       |
+| Address | varchar(15) | YES  |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
+| Mobile  | int(10)     | YES  |     | NULL    |       |
+| Deptno  | int(10)     | YES  |     | NULL    |       |
+| Salary  | int(20)     | YES  |     | NULL    |       |
+| dos     | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+9 rows in set (0.017 sec)
+
+MariaDB [mysql]> alter table Emp_Details modify Empno int(10);
+Query OK, 0 rows affected (0.039 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> desc Emp_Details
+    ->
+    -> ;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Empno   | int(10)     | YES  |     | NULL    |       |
+| Empname | varchar(30) | YES  |     | NULL    |       |
+| DOB     | date        | YES  |     | NULL    |       |
+| Address | varchar(15) | YES  |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
+| Mobile  | int(10)     | YES  |     | NULL    |       |
+| Deptno  | int(10)     | YES  |     | NULL    |       |
+| Salary  | int(20)     | YES  |     | NULL    |       |
+| dos     | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+9 rows in set (0.014 sec)
+
+MariaDB [mysql]> alter table Emp_Details drop column dos;
+Query OK, 0 rows affected (0.018 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> desc Emp_Details
+    -> ;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Empno   | int(10)     | YES  |     | NULL    |       |
+| Empname | varchar(30) | YES  |     | NULL    |       |
+| DOB     | date        | YES  |     | NULL    |       |
+| Address | varchar(15) | YES  |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
+| Mobile  | int(10)     | YES  |     | NULL    |       |
+| Deptno  | int(10)     | YES  |     | NULL    |       |
+| Salary  | int(20)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+8 rows in set (0.014 sec)
+
+MariaDB [mysql]> insert into Emp_Details values (2,"monish",'2002-12-09',"ch
+ennai",'2019-12-08',9994656980,123,5000);
+Query OK, 1 row affected, 1 warning (0.010 sec)
+
+MariaDB [mysql]> select * from Emp_Details
+    -> ;
++-------+---------+------------+---------+------------+------------+--------+--------+
+| Empno | Empname | DOB        | Address | DOJ        | Mobile     | Deptno | Salary |
++-------+---------+------------+---------+------------+------------+--------+--------+
+|     2 | monish  | 2002-12-09 | chennai | 2019-12-08 | 2147483647 |    123 |   5000 |
++-------+---------+------------+---------+------------+------------+--------+--------+
+1 row in set (0.001 sec)
+
+MariaDB [mysql]> select Empno,Mobile from Emp_Details;
++-------+------------+
+| Empno | Mobile     |
++-------+------------+
+|     2 | 2147483647 |
++-------+------------+
+1 row in set (0.000 sec)
+
+MariaDB [mysql]> update Emp_Details set Empname = manish where Empno = 2;
+ERROR 1054 (42S22): Unknown column 'manish' in 'field list'
+MariaDB [mysql]> update Emp_Details set Empname = "manish" where Empno = 2;
+Query OK, 1 row affected (0.009 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mysql]> select * from Emp_Details;
++-------+---------+------------+---------+------------+------------+--------+--------+
+| Empno | Empname | DOB        | Address | DOJ        | Mobile     | Deptno | Salary |
++-------+---------+------------+---------+------------+------------+--------+--------+
+|     2 | manish  | 2002-12-09 | chennai | 2019-12-08 | 2147483647 |    123 |   5000 |
++-------+---------+------------+---------+------------+------------+--------+--------+
+1 row in set (0.001 sec)9op
